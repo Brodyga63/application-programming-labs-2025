@@ -61,14 +61,15 @@ def save_fixed_file(input_file: str, lines: List[str]) -> None:
     print(f"Исправленные данные сохранены в {output_file}")
 
 
-def parse_arguments():
+def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Исправление регистра имён и фамилий в файле анкет."
     )
     parser.add_argument(
         "-f", "--filename",
         type=str,
-        help="Имя входного файла с анкетами")
+        help="Имя входного файла с анкетами",
+        required=True)
     return parser.parse_args()
 
 
